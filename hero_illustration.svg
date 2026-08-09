@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a small business owner celebrating in front of their new website">
+          <!-- decorative sparkles -->
+          <circle cx="110" cy="95" r="6" fill="#34d399"/>
+          <circle cx="512" cy="120" r="5" fill="#f5c400"/>
+          <circle cx="150" cy="330" r="4" fill="#e8608f"/>
+          <path d="M492 70 l5 12 12 5 -12 5 -5 12 -5-12 -12-5 12-5 z" fill="#f5c400"/>
+          <path d="M96 250 l4 9 9 4 -9 4 -4 9 -4-9 -9-4 9-4 z" fill="#34d399"/>
+
+          <!-- plant -->
+          <rect x="66" y="392" width="46" height="34" rx="7" fill="#dbe6e0"/>
+          <ellipse cx="80" cy="384" rx="16" ry="22" fill="#34d399"/>
+          <ellipse cx="102" cy="378" rx="14" ry="20" fill="#4ade80"/>
+
+          <!-- desk -->
+          <rect x="40" y="428" width="560" height="12" rx="6" fill="#dbe3ee"/>
+
+          <!-- torso (drawn behind laptop) -->
+          <path d="M262 260 q58 -26 116 0 l0 60 q-58 20 -116 0 z" fill="#0e1e3f"/>
+
+          <!-- raised celebrating arm -->
+          <path d="M352 268 Q392 244 386 196" stroke="#0e1e3f" stroke-width="20" fill="none" stroke-linecap="round"/>
+          <circle cx="387" cy="190" r="13" fill="#f0b98a"/>
+
+          <!-- other arm resting on laptop -->
+          <path d="M270 272 Q250 300 262 322" stroke="#0e1e3f" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <circle cx="264" cy="326" r="12" fill="#f0b98a"/>
+
+          <!-- laptop base -->
+          <rect x="222" y="426" width="196" height="12" rx="5" fill="#c9d2df"/>
+          <path d="M205 438 h230 l-10 14 h-210 z" fill="#b7c1d1"/>
+
+          <!-- laptop screen -->
+          <rect x="233" y="266" width="174" height="164" rx="12" fill="#0e1e3f"/>
+          <rect x="245" y="278" width="150" height="140" rx="5" fill="#ffffff"/>
+          <circle cx="255" cy="289" r="2.6" fill="#cbd5e1"/>
+          <circle cx="264" cy="289" r="2.6" fill="#cbd5e1"/>
+          <circle cx="273" cy="289" r="2.6" fill="#cbd5e1"/>
+          <rect x="253" y="306" width="112" height="10" rx="3" fill="#0e1e3f"/>
+          <rect x="253" y="324" width="130" height="6" rx="3" fill="#dbe3ee"/>
+          <rect x="253" y="334" width="100" height="6" rx="3" fill="#dbe3ee"/>
+          <rect x="253" y="352" width="56" height="17" rx="8.5" fill="#34d399"/>
+          <rect x="322" y="306" width="60" height="64" rx="8" fill="#eafaf3" stroke="#34d399" stroke-width="1.5"/>
+
+          <!-- head -->
+          <circle cx="320" cy="228" r="42" fill="#f0b98a"/>
+          <path d="M278 224 Q320 172 362 224 L362 236 Q320 202 278 236 Z" fill="#241b12"/>
+          <circle cx="306" cy="226" r="3.4" fill="#241b12"/>
+          <circle cx="334" cy="226" r="3.4" fill="#241b12"/>
+          <path d="M303 242 Q320 256 337 242" stroke="#a9673a" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+
+          <!-- shirt collar peeking above laptop -->
+          <path d="M292 266 Q320 280 348 266 L348 276 Q320 292 292 276 Z" fill="#34d399"/>
+        </svg>
