@@ -14,6 +14,10 @@
     --navy-deep:#081328;
     --mint:#34d399;
     --mint-bright:#4ade80;
+    --coral:#ff6b57;
+    --coral-deep:#e6503d;
+    --sunshine:#ffc23c;
+    --pink:#ff5da8;
     --ink:#0f172a;
     --slate:#5b6b83;
     --slate-light:#8493ab;
@@ -94,7 +98,9 @@
 
   /* HERO */
   .hero{
-    background:radial-gradient(1100px 500px at 15% -10%, rgba(52,211,153,0.16), transparent),
+    background:radial-gradient(900px 460px at 12% -8%, rgba(52,211,153,0.20), transparent),
+               radial-gradient(700px 420px at 88% 8%, rgba(255,107,87,0.16), transparent),
+               radial-gradient(650px 500px at 70% 105%, rgba(255,93,168,0.14), transparent),
                linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
     color:var(--white);
     padding:96px 0 90px;
@@ -103,7 +109,7 @@
   }
   .hero::after{
     content:"";position:absolute;right:-120px;top:-80px;width:480px;height:480px;
-    background:radial-gradient(circle, rgba(52,211,153,0.14), transparent 70%);
+    background:radial-gradient(circle, rgba(255,194,60,0.16), transparent 70%);
     pointer-events:none;
   }
   .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
@@ -281,7 +287,11 @@
   .check{color:var(--mint-bright);font-weight:800;flex-shrink:0;}
 
   /* CTA */
-  .cta{padding:100px 0;text-align:center;}
+  .cta{
+    padding:100px 0;text-align:center;
+    background:radial-gradient(700px 340px at 20% 0%, rgba(52,211,153,0.10), transparent),
+               radial-gradient(600px 320px at 85% 100%, rgba(255,93,168,0.08), transparent);
+  }
   .cta h2{font-size:36px;margin-bottom:16px;color:var(--ink);}
   .cta p{font-size:17px;color:var(--slate);max-width:520px;margin:0 auto 34px;}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
@@ -447,25 +457,25 @@
 <section class="stat-strip">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Why This Matters</div>
+      <div class="eyebrow" style="color:#e6503d;background:rgba(255,107,87,0.1);border-color:rgba(255,107,87,0.3);">Why This Matters</div>
       <h2>Most small business websites are quietly losing customers</h2>
       <p>Slow, poorly-optimized sites don't just look dated &mdash; they get skipped by Google and abandoned by the exact customers searching for you right now.</p>
     </div>
     <div class="stat-grid">
-      <div class="stat-card">
-        <b>53%</b>
+      <div class="stat-card" style="border-top:4px solid var(--mint);">
+        <b style="color:var(--mint);">53%</b>
         <p>of mobile visitors abandon a site that takes longer than 3 seconds to load.</p>
       </div>
-      <div class="stat-card">
-        <b>7%</b>
+      <div class="stat-card" style="border-top:4px solid var(--coral);">
+        <b style="color:var(--coral-deep);">7%</b>
         <p>drop in conversions for every additional second your site takes to load.</p>
       </div>
-      <div class="stat-card">
-        <b>59%</b>
+      <div class="stat-card" style="border-top:4px solid var(--pink);">
+        <b style="color:var(--pink);">59%</b>
         <p>of websites fail Google's Core Web Vitals speed benchmark on mobile &mdash; a direct ranking factor.</p>
       </div>
-      <div class="stat-card">
-        <b>76%</b>
+      <div class="stat-card" style="border-top:4px solid var(--sunshine);">
+        <b style="color:#b8860b;">76%</b>
         <p>of people who search "near me" on their phone visit that business within 24 hours.</p>
       </div>
     </div>
@@ -475,38 +485,38 @@
 <section class="features" id="features">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">What You Get</div>
+      <div class="eyebrow" style="color:#c2298a;background:rgba(255,93,168,0.1);border-color:rgba(255,93,168,0.3);">What You Get</div>
       <h2>Built to be fast, found, and worth showing off</h2>
       <p>No bloated CMS, no page-builder plugins slowing things down. Just a clean, fast site built around what your business actually needs.</p>
     </div>
     <div class="feature-grid">
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14H11L9 22L21 9H13L13 2Z" fill="#34d399"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--mint));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14H11L9 22L21 9H13L13 2Z" fill="#ffffff"/></svg></div>
         <h3>Built on Next.js</h3>
         <p>The same framework used by fast, high-ranking sites &mdash; optimized images, minimal load, instant navigation.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#34d399" stroke-width="2.2"/><path d="M20 20L16 16" stroke="#34d399" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--coral));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#ffffff" stroke-width="2.2"/><path d="M20 20L16 16" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg></div>
         <h3>Local SEO, built in</h3>
         <p>Structured data, city/service targeting, and Google Business Profile alignment from day one &mdash; not an add-on later.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#34d399" stroke-width="2.2"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--pink));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#ffffff" stroke-width="2.2"/></svg></div>
         <h3>Mobile-first, always</h3>
         <p>Most of your customers are finding you on a phone. Every layout is designed for that screen first.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12H21M3 12L9 6M3 12L9 18" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--sunshine));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12H21M3 12L9 6M3 12L9 18" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Booking, forms & maps</h3>
         <p>Online booking, contact forms that actually deliver, click-to-call, and map/location integration &mdash; wired up and tested.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9L22 10L17 15L18 22L12 18.5L6 22L7 15L2 10L9 9L12 2Z" fill="#34d399"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--mint));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9L22 10L17 15L18 22L12 18.5L6 22L7 15L2 10L9 9L12 2Z" fill="#ffffff"/></svg></div>
         <h3>Real design, not a template</h3>
         <p>Your brand colors, your photos, your voice &mdash; built to look like you, not like every other business on a page builder.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4V20H20" stroke="#34d399" stroke-width="2.2" stroke-linecap="round"/><path d="M8 16L12 10L16 13L20 6" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="feature-icon" style="background:linear-gradient(135deg,var(--navy),var(--coral));"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4V20H20" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/><path d="M8 16L12 10L16 13L20 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Sized to your business</h3>
         <p>A one-page site for a single-location shop, a five-page site for a multi-service business &mdash; you don't pay for pages you don't need.</p>
       </div>
@@ -517,7 +527,7 @@
 <section class="pricing" id="pricing">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Pricing</div>
+      <div class="eyebrow" style="color:#b8860b;background:rgba(255,194,60,0.15);border-color:rgba(255,194,60,0.4);">Pricing</div>
       <h2>Simple pricing, sized to your site</h2>
       <p>Every price includes a custom Next.js build, mobile-first design, and local SEO setup. Bigger projects get a straight quote before we start.</p>
     </div>
@@ -661,23 +671,23 @@
 <section class="process" id="process">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">How It Works</div>
+      <div class="eyebrow" style="color:#e6503d;background:rgba(255,107,87,0.1);border-color:rgba(255,107,87,0.3);">How It Works</div>
       <h2>From first call to live site &mdash; usually inside two weeks</h2>
       <p>No lengthy discovery phase, no 6-month agency timeline. Small businesses need to be found now.</p>
     </div>
     <div class="process-grid">
       <div class="process-card">
-        <div class="process-num">1</div>
+        <div class="process-num" style="color:var(--mint);border-color:var(--mint);">1</div>
         <h3>Free 15-minute call</h3>
         <p>We talk about your business, what you need the site to do, and take a look at what your competitors are already doing online.</p>
       </div>
       <div class="process-card">
-        <div class="process-num">2</div>
+        <div class="process-num" style="color:var(--coral-deep);border-color:var(--coral);">2</div>
         <h3>We design &amp; build</h3>
         <p>A real design built around your brand and photos, then built on Next.js for speed &mdash; not a drag-and-drop template.</p>
       </div>
       <div class="process-card">
-        <div class="process-num">3</div>
+        <div class="process-num" style="color:var(--pink);border-color:var(--pink);">3</div>
         <h3>Launch &amp; get found</h3>
         <p>We connect your domain, set up your Google Business Profile, and hand off a site that's ready to rank and take bookings.</p>
       </div>
@@ -694,10 +704,10 @@
       <p>No agency markup. No call center. You're working directly with the person building your site.</p>
     </div>
     <ul class="whyus-list">
-      <li><span class="check">✓</span><span><b>Direct, not outsourced.</b> One person designs, builds, and deploys your site &mdash; no account managers in between.</span></li>
-      <li><span class="check">✓</span><span><b>Real small business experience.</b> We've funded and built for small businesses across the same industries &mdash; auto, home services, wellness, food &amp; beverage.</span></li>
-      <li><span class="check">✓</span><span><b>Fast turnaround.</b> Most 1&ndash;5 page sites go from kickoff to live in under two weeks.</span></li>
-      <li><span class="check">✓</span><span><b>Built to last.</b> Fast hosting, a real domain, and a site you own &mdash; not locked into a subscription platform.</span></li>
+      <li><span class="check" style="color:var(--mint-bright);">✓</span><span><b>Direct, not outsourced.</b> One person designs, builds, and deploys your site &mdash; no account managers in between.</span></li>
+      <li><span class="check" style="color:var(--coral);">✓</span><span><b>Real small business experience.</b> We've funded and built for small businesses across the same industries &mdash; auto, home services, wellness, food &amp; beverage.</span></li>
+      <li><span class="check" style="color:var(--pink);">✓</span><span><b>Fast turnaround.</b> Most 1&ndash;5 page sites go from kickoff to live in under two weeks.</span></li>
+      <li><span class="check" style="color:var(--sunshine);">✓</span><span><b>Built to last.</b> Fast hosting, a real domain, and a site you own &mdash; not locked into a subscription platform.</span></li>
     </ul>
   </div>
 </section>
