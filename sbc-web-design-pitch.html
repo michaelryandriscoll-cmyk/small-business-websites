@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design for Small Businesses | Small Business Capital</title>
+<meta name="description" content="Fast, SEO-optimized 1-5 page websites for small businesses, built on Next.js by Small Business Capital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e1e3f;
+    --navy-deep:#081328;
+    --mint:#34d399;
+    --mint-bright:#4ade80;
+    --ink:#0f172a;
+    --slate:#5b6b83;
+    --slate-light:#8493ab;
+    --bg:#f6f8fb;
+    --line:#e4e9f0;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.5;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+  h1,h2,h3{font-weight:800;letter-spacing:-0.02em;line-height:1.1;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--mint);
+    background:rgba(52,211,153,0.1);
+    border:1px solid rgba(52,211,153,0.35);
+    padding:6px 14px;border-radius:100px;
+    margin-bottom:20px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 28px;border-radius:10px;
+    font-weight:700;font-size:15px;
+    cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--mint-bright),var(--mint));
+    color:var(--navy-deep);
+    box-shadow:0 8px 24px rgba(52,211,153,0.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(52,211,153,0.45);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--white);
+    border:1.5px solid rgba(255,255,255,0.28);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+  .btn-dark{
+    background:var(--navy);
+    color:var(--white);
+  }
+  .btn-dark:hover{background:var(--navy-deep);}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,30,63,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .logo{display:flex;align-items:center;gap:10px;color:var(--white);}
+  .logo-mark{width:34px;height:34px;flex-shrink:0;}
+  .logo-text{font-size:16px;font-weight:800;line-height:1.15;}
+  .logo-text span{color:var(--mint);}
+  .logo-tag{
+    font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--slate-light);margin-top:1px;
+  }
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{
+    color:rgba(255,255,255,0.78);font-size:14.5px;font-weight:600;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{display:flex;align-items:center;gap:20px;}
+  .nav-mobile-hide{display:flex;}
+
+  /* HERO */
+  .hero{
+    background:radial-gradient(1100px 500px at 15% -10%, rgba(52,211,153,0.16), transparent),
+               linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--white);
+    padding:96px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-80px;width:480px;height:480px;
+    background:radial-gradient(circle, rgba(52,211,153,0.14), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;position:relative;z-index:1;}
+  .hero h1{font-size:52px;color:var(--white);margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--mint-bright);}
+  .hero p.lead{font-size:19px;color:rgba(255,255,255,0.75);max-width:600px;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .hero-stats{display:flex;gap:44px;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(255,255,255,0.12);}
+  .hstat b{display:block;font-size:26px;font-weight:800;color:var(--white);}
+  .hstat span{font-size:13.5px;color:rgba(255,255,255,0.6);}
+
+  /* STAT STRIP */
+  .stat-strip{background:var(--bg);padding:80px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head .eyebrow{color:var(--navy);background:rgba(14,30,63,0.06);border-color:rgba(14,30,63,0.15);}
+  .section-head h2{font-size:34px;color:var(--ink);margin-bottom:14px;}
+  .section-head p{font-size:16.5px;color:var(--slate);}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .stat-card{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;
+    padding:28px 24px;
+  }
+  .stat-card b{display:block;font-size:34px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+  .stat-card p{font-size:14.5px;color:var(--slate);line-height:1.5;}
+
+  /* FEATURES */
+  .features{padding:96px 0;}
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .feature-card{
+    border:1px solid var(--line);border-radius:18px;padding:30px 26px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .feature-card:hover{border-color:var(--mint);transform:translateY(-3px);}
+  .feature-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .feature-card h3{font-size:17px;margin-bottom:10px;color:var(--ink);}
+  .feature-card p{font-size:14.5px;color:var(--slate);}
+
+  /* PORTFOLIO */
+  .portfolio{background:var(--bg);padding:96px 0;}
+  .port-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  .port-card{
+    background:var(--white);border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .port-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,30,63,0.12);}
+  .port-browser{
+    display:flex;align-items:center;gap:6px;
+    padding:12px 16px;background:#1b2436;
+  }
+  .port-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.25);}
+  .port-url{
+    margin-left:10px;font-size:12px;color:rgba(255,255,255,0.55);
+    font-family:ui-monospace,Menlo,monospace;
+  }
+  .port-visual{
+    height:190px;display:flex;flex-direction:column;justify-content:center;padding:26px 30px;
+    position:relative;overflow:hidden;
+  }
+  .port-visual .p-eyebrow{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:8px;}
+  .port-visual .p-title{font-size:26px;font-weight:800;line-height:1.1;}
+  .port-body{padding:24px 26px 28px;}
+  .port-body h3{font-size:18px;margin-bottom:8px;color:var(--ink);}
+  .port-body p{font-size:14px;color:var(--slate);margin-bottom:16px;}
+  .port-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .port-tag{
+    font-size:11.5px;font-weight:700;color:var(--navy);
+    background:rgba(14,30,63,0.06);padding:5px 10px;border-radius:100px;
+  }
+  .port-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:14px;font-weight:700;color:var(--navy);
+  }
+  .port-link.disabled{color:var(--slate-light);}
+  .badge-live{
+    font-size:11px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;
+    padding:4px 10px;border-radius:100px;background:rgba(52,211,153,0.15);color:#0a8a5a;
+  }
+  .badge-preview{
+    font-size:11px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;
+    padding:4px 10px;border-radius:100px;background:rgba(148,163,184,0.2);color:var(--slate);
+  }
+  .port-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+
+  /* PROCESS */
+  .process{padding:96px 0;}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative;}
+  .process-card{position:relative;padding-left:4px;}
+  .process-num{
+    font-size:14px;font-weight:800;color:var(--mint);
+    width:36px;height:36px;border-radius:50%;
+    border:1.5px solid var(--mint);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .process-card h3{font-size:19px;margin-bottom:10px;}
+  .process-card p{font-size:14.5px;color:var(--slate);}
+
+  /* WHY US */
+  .whyus{
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--white);padding:96px 0;
+  }
+  .whyus-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
+  .whyus h2{font-size:32px;margin-bottom:20px;}
+  .whyus p{font-size:16px;color:rgba(255,255,255,0.72);margin-bottom:16px;}
+  .whyus-list{list-style:none;margin-top:24px;}
+  .whyus-list li{
+    display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);
+    font-size:15px;color:rgba(255,255,255,0.85);
+  }
+  .whyus-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.1);}
+  .whyus-list b{color:var(--white);}
+  .check{color:var(--mint-bright);font-weight:800;flex-shrink:0;}
+
+  /* CTA */
+  .cta{padding:100px 0;text-align:center;}
+  .cta h2{font-size:36px;margin-bottom:16px;color:var(--ink);}
+  .cta p{font-size:17px;color:var(--slate);max-width:520px;margin:0 auto 34px;}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+  .cta-contact{font-size:14.5px;color:var(--slate);}
+  .cta-contact a{color:var(--navy);font-weight:700;}
+
+  footer{background:var(--navy-deep);color:rgba(255,255,255,0.55);padding:48px 0 36px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:24px;}
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;font-size:14px;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .hero h1{font-size:36px;}
+    .hero p.lead{font-size:17px;}
+    .hero-stats{gap:28px;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .feature-grid{grid-template-columns:1fr;}
+    .port-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .whyus-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 30L14 19L21 25L36 8" stroke="#34d399" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M27 8H36V17" stroke="#34d399" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="4" y="30" width="5" height="6" rx="1" fill="#ffffff"/>
+        <rect x="12" y="24" width="5" height="12" rx="1" fill="#ffffff"/>
+        <rect x="20" y="27" width="5" height="9" rx="1" fill="#ffffff"/>
+      </svg>
+      <div>
+        <div class="logo-text">Small Business <span>Web Design</span></div>
+      </div>
+    </a>
+    <div class="nav-links nav-mobile-hide">
+      <a href="#work">Portfolio</a>
+      <a href="#features">What You Get</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="eyebrow" style="color:#4ade80;background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);">Web Design · by Small Business Capital</div>
+    <h1>A website that loads fast, ranks on Google, and turns visitors into <em>customers.</em></h1>
+    <p class="lead">We build 1&ndash;5 page websites for small businesses on Next.js &mdash; the same framework big-name companies use for speed &mdash; so your site shows up in local search and doesn't lose customers to a slow load.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote →</a>
+      <a href="#work" class="btn btn-ghost">See Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>5</b><span>small business sites shipped recently</span></div>
+      <div class="hstat"><b>&lt;2s</b><span>target load time, every build</span></div>
+      <div class="hstat"><b>1&ndash;5</b><span>pages &mdash; sized to what you actually need</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="stat-strip">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why This Matters</div>
+      <h2>Most small business websites are quietly losing customers</h2>
+      <p>Slow, poorly-optimized sites don't just look dated &mdash; they get skipped by Google and abandoned by the exact customers searching for you right now.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <b>53%</b>
+        <p>of mobile visitors abandon a site that takes longer than 3 seconds to load.</p>
+      </div>
+      <div class="stat-card">
+        <b>7%</b>
+        <p>drop in conversions for every additional second your site takes to load.</p>
+      </div>
+      <div class="stat-card">
+        <b>59%</b>
+        <p>of websites fail Google's Core Web Vitals speed benchmark on mobile &mdash; a direct ranking factor.</p>
+      </div>
+      <div class="stat-card">
+        <b>76%</b>
+        <p>of people who search "near me" on their phone visit that business within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What You Get</div>
+      <h2>Built to be fast, found, and worth showing off</h2>
+      <p>No bloated CMS, no page-builder plugins slowing things down. Just a clean, fast site built around what your business actually needs.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14H11L9 22L21 9H13L13 2Z" fill="#34d399"/></svg></div>
+        <h3>Built on Next.js</h3>
+        <p>The same framework used by fast, high-ranking sites &mdash; optimized images, minimal load, instant navigation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#34d399" stroke-width="2.2"/><path d="M20 20L16 16" stroke="#34d399" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Local SEO, built in</h3>
+        <p>Structured data, city/service targeting, and Google Business Profile alignment from day one &mdash; not an add-on later.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#34d399" stroke-width="2.2"/></svg></div>
+        <h3>Mobile-first, always</h3>
+        <p>Most of your customers are finding you on a phone. Every layout is designed for that screen first.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12H21M3 12L9 6M3 12L9 18" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Booking, forms & maps</h3>
+        <p>Online booking, contact forms that actually deliver, click-to-call, and map/location integration &mdash; wired up and tested.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9L22 10L17 15L18 22L12 18.5L6 22L7 15L2 10L9 9L12 2Z" fill="#34d399"/></svg></div>
+        <h3>Real design, not a template</h3>
+        <p>Your brand colors, your photos, your voice &mdash; built to look like you, not like every other business on a page builder.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4V20H20" stroke="#34d399" stroke-width="2.2" stroke-linecap="round"/><path d="M8 16L12 10L16 13L20 6" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Sized to your business</h3>
+        <p>A one-page site for a single-location shop, a five-page site for a multi-service business &mdash; you don't pay for pages you don't need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Recent Work</div>
+      <h2>Small businesses we've built for recently</h2>
+      <p>All Western New York businesses, all built and shipped in the last few months.</p>
+    </div>
+    <div class="port-grid">
+
+      <div class="port-card">
+        <div class="port-browser">
+          <div class="port-dot"></div><div class="port-dot"></div><div class="port-dot"></div>
+          <div class="port-url">donandjims.com</div>
+        </div>
+        <div class="port-visual" style="background:linear-gradient(135deg,#0e2044,#07122a);">
+          <div class="p-eyebrow" style="color:#f5c400;">Auto Service &middot; 2 Locations</div>
+          <div class="p-title" style="color:#ffffff;">Don &amp; Jim's <span style="color:#f5c400;">Auto</span></div>
+        </div>
+        <div class="port-body">
+          <h3>Don &amp; Jim's Auto Service Center</h3>
+          <p>Two West Seneca locations on one site, with online appointment booking wired in so younger customers stop calling and start clicking.</p>
+          <div class="port-tags"><span class="port-tag">One-page</span><span class="port-tag">Online Booking</span><span class="port-tag">Custom Domain</span></div>
+          <a href="https://donandjims.com" target="_blank" class="port-link">Visit live site ↗</a>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-browser">
+          <div class="port-dot"></div><div class="port-dot"></div><div class="port-dot"></div>
+          <div class="port-url">creativestoneworkdesigns.com</div>
+        </div>
+        <div class="port-visual" style="background:linear-gradient(135deg,#2c2420,#1a1512);">
+          <div class="p-eyebrow" style="color:#c8622a;">Custom Masonry &middot; WNY</div>
+          <div class="p-title" style="color:#f7f3ee;">Creative Stonework</div>
+        </div>
+        <div class="port-body">
+          <h3>Creative Stonework Designs</h3>
+          <p>A portfolio-led site for a custom fireplace &amp; masonry company &mdash; built to make finished work the reason people request a quote.</p>
+          <div class="port-tags"><span class="port-tag">One-page</span><span class="port-tag">Portfolio Grid</span><span class="port-tag">Quote Form</span></div>
+          <a href="https://creativestoneworkdesigns.com" target="_blank" class="port-link">Visit live site ↗</a>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-browser">
+          <div class="port-dot"></div><div class="port-dot"></div><div class="port-dot"></div>
+          <div class="port-url">gernattpest.com</div>
+        </div>
+        <div class="port-visual" style="background:linear-gradient(135deg,#111111,#1a1a1a);">
+          <div class="p-eyebrow" style="color:#e8327a;">Pest Control &middot; 20+ Years</div>
+          <div class="p-title" style="color:#ffffff;">Gernatt <span style="color:#e8327a;">Pest</span></div>
+        </div>
+        <div class="port-body">
+          <h3>Gernatt Pest Solutions</h3>
+          <p>A bold, trust-first rebuild for a 20-year pest control company &mdash; built to convert on a "pest-free, guaranteed" promise.</p>
+          <div class="port-tags"><span class="port-tag">One-page</span><span class="port-tag">Trust-Focused</span><span class="port-tag">Launching Soon</span></div>
+          <a href="https://michaelryandriscoll-cmyk.github.io/gernattpest-preview/" target="_blank" class="port-link">View preview ↗</a>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-browser">
+          <div class="port-dot"></div><div class="port-dot"></div><div class="port-dot"></div>
+          <div class="port-url">ourkulayoga.com</div>
+        </div>
+        <div class="port-visual" style="background:linear-gradient(135deg,#0d0710,#1a0f22);">
+          <div class="p-eyebrow" style="color:#d16bff;">Hot Yoga &amp; Pilates &middot; Hamburg, NY</div>
+          <div class="p-title" style="color:#ffffff;">Kula <span style="color:#d16bff;">Yoga</span></div>
+        </div>
+        <div class="port-body">
+          <h3>Kula Yoga Studio</h3>
+          <p>A full brand refresh aimed at a younger demographic &mdash; moody neon-on-black design, full class schedule, and direct booking.</p>
+          <div class="port-tags"><span class="port-tag">Multi-page</span><span class="port-tag">Class Booking</span><span class="port-tag">Rebrand</span></div>
+          <a href="https://ourkulayoga.com" target="_blank" class="port-link">Visit live site ↗</a>
+        </div>
+      </div>
+
+      <div class="port-card" style="grid-column:1 / -1;">
+        <div class="port-browser">
+          <div class="port-dot"></div><div class="port-dot"></div><div class="port-dot"></div>
+          <div class="port-url">thegrovejuice.com</div>
+        </div>
+        <div class="port-visual" style="background:linear-gradient(135deg,#173d2e,#0f2b21);height:150px;">
+          <div class="p-eyebrow" style="color:#8ee6b8;">Smoothie &amp; Juice Bar &middot; Hamburg &amp; East Aurora, NY</div>
+          <div class="p-title" style="color:#ffffff;">The Grove</div>
+        </div>
+        <div class="port-body">
+          <h3>The Grove</h3>
+          <p>A multi-page site for a two-location juice &amp; smoothie bar &mdash; full menu, both locations, and online ordering on the way.</p>
+          <div class="port-tags"><span class="port-tag">Multi-page</span><span class="port-tag">2 Locations</span><span class="port-tag">Menu &amp; Ordering</span></div>
+          <span class="port-link disabled">Launching soon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How It Works</div>
+      <h2>From first call to live site &mdash; usually inside two weeks</h2>
+      <p>No lengthy discovery phase, no 6-month agency timeline. Small businesses need to be found now.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">1</div>
+        <h3>Free 15-minute call</h3>
+        <p>We talk about your business, what you need the site to do, and take a look at what your competitors are already doing online.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">2</div>
+        <h3>We design &amp; build</h3>
+        <p>A real design built around your brand and photos, then built on Next.js for speed &mdash; not a drag-and-drop template.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">3</div>
+        <h3>Launch &amp; get found</h3>
+        <p>We connect your domain, set up your Google Business Profile, and hand off a site that's ready to rank and take bookings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="whyus">
+  <div class="wrap whyus-grid">
+    <div>
+      <div class="eyebrow" style="color:#4ade80;background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);">Why Small Business Capital</div>
+      <h2>We already work with small businesses like yours &mdash; now we build the other half of the growth equation</h2>
+      <p>Small Business Capital helps small businesses across Western New York get funded to grow. A website is the other piece: it's what turns the customers searching for you into customers who actually call, book, or walk in.</p>
+      <p>No agency markup. No call center. You're working directly with the person building your site.</p>
+    </div>
+    <ul class="whyus-list">
+      <li><span class="check">✓</span><span><b>Direct, not outsourced.</b> One person designs, builds, and deploys your site &mdash; no account managers in between.</span></li>
+      <li><span class="check">✓</span><span><b>Real small business experience.</b> We've funded and built for small businesses across the same industries &mdash; auto, home services, wellness, food &amp; beverage.</span></li>
+      <li><span class="check">✓</span><span><b>Fast turnaround.</b> Most 1&ndash;5 page sites go from kickoff to live in under two weeks.</span></li>
+      <li><span class="check">✓</span><span><b>Built to last.</b> Fast hosting, a real domain, and a site you own &mdash; not locked into a subscription platform.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Ready for a website that works as hard as you do?</h2>
+    <p>Tell us about your business and we'll put together a free quote &mdash; no obligation, no pressure.</p>
+    <div class="cta-actions">
+      <a href="mailto:michael@smallbusiness.capital?subject=Website%20Quote%20Request&body=Business%20name%3A%0APages%20needed%20(1-5)%3A%0ACurrent%20website%20(if%20any)%3A%0AWhat%20you%20need%20the%20site%20to%20do%3A" class="btn btn-dark">Email for a Free Quote</a>
+      <a href="tel:+18889008979" class="btn btn-ghost" style="color:var(--navy);border-color:var(--navy);">Call (888) 900-8979</a>
+    </div>
+    <p class="cta-contact">Or reach out directly &mdash; <a href="mailto:michael@smallbusiness.capital">michael@smallbusiness.capital</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo-text" style="color:#fff;">Small Business <span style="color:#34d399;">Web Design</span></div>
+        <div class="logo-tag" style="margin-top:6px;">By Small Business Capital &middot; Western New York</div>
+      </div>
+      <div class="footer-links">
+        <a href="#work">Portfolio</a>
+        <a href="#features">What You Get</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <a href="https://smallbusiness.capital" target="_blank">smallbusiness.capital →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Small Business Capital. All rights reserved.</span>
+      <span>Proper Provider Companies LLC &middot; Buffalo, NY</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
