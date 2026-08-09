@@ -106,14 +106,35 @@
     background:radial-gradient(circle, rgba(52,211,153,0.14), transparent 70%);
     pointer-events:none;
   }
-  .hero-inner{max-width:760px;position:relative;z-index:1;}
-  .hero h1{font-size:52px;color:var(--white);margin-bottom:22px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
+  .hero-inner{position:relative;z-index:1;}
+  .hero h1{font-size:48px;color:var(--white);margin-bottom:22px;}
   .hero h1 em{font-style:normal;color:var(--mint-bright);}
   .hero p.lead{font-size:19px;color:rgba(255,255,255,0.75);max-width:600px;margin-bottom:34px;}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
-  .hero-stats{display:flex;gap:44px;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(255,255,255,0.12);}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.12);}
   .hstat b{display:block;font-size:26px;font-weight:800;color:var(--white);}
   .hstat span{font-size:13.5px;color:rgba(255,255,255,0.6);}
+  .hero-media{position:relative;z-index:1;}
+  .hero-media .frame{
+    position:relative;border-radius:22px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.14);
+    box-shadow:0 30px 70px rgba(0,0,0,0.4);
+  }
+  .hero-media img{width:100%;height:440px;object-fit:cover;display:block;}
+  .hero-media .frame::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(8,19,40,0) 55%, rgba(8,19,40,0.55) 100%);
+  }
+  .hero-media .chip{
+    position:absolute;left:20px;bottom:20px;z-index:2;
+    display:flex;align-items:center;gap:8px;
+    background:rgba(8,19,40,0.85);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.14);
+    padding:10px 16px;border-radius:100px;
+    font-size:13px;font-weight:700;color:var(--white);
+  }
+  .hero-media .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--mint-bright);box-shadow:0 0 10px var(--mint-bright);}
 
   /* STAT STRIP */
   .stat-strip{background:var(--bg);padding:80px 0;}
@@ -238,9 +259,14 @@
 
   @media (max-width:860px){
     .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .hero-media{order:-1;}
+    .hero-media img{height:240px;}
     .hero h1{font-size:36px;}
     .hero p.lead{font-size:17px;}
-    .hero-stats{gap:28px;}
+    .hero-stats{gap:14px;}
+    .hstat b{font-size:21px;}
+    .hstat span{font-size:12px;}
     .stat-grid{grid-template-columns:repeat(2,1fr);}
     .feature-grid{grid-template-columns:1fr;}
     .port-grid{grid-template-columns:1fr;}
@@ -279,18 +305,26 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-inner">
-    <div class="eyebrow" style="color:#4ade80;background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);">Web Design · by Small Business Capital</div>
-    <h1>A website that loads fast, ranks on Google, and turns visitors into <em>customers.</em></h1>
-    <p class="lead">We build 1&ndash;5 page websites for small businesses on Next.js &mdash; the same framework big-name companies use for speed &mdash; so your site shows up in local search and doesn't lose customers to a slow load.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Get a Free Quote →</a>
-      <a href="#work" class="btn btn-ghost">See Our Work</a>
+  <div class="wrap hero-grid">
+    <div class="hero-inner">
+      <div class="eyebrow" style="color:#4ade80;background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);">Web Design · by Small Business Capital</div>
+      <h1>A website that loads fast, ranks on Google, and turns visitors into <em>customers.</em></h1>
+      <p class="lead">We build 1&ndash;5 page websites for small businesses on Next.js &mdash; the same framework big-name companies use for speed &mdash; so your site shows up in local search and doesn't lose customers to a slow load.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote →</a>
+        <a href="#work" class="btn btn-ghost">See Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>5</b><span>small business sites shipped recently</span></div>
+        <div class="hstat"><b>&lt;2s</b><span>target load time, every build</span></div>
+        <div class="hstat"><b>1&ndash;5</b><span>pages &mdash; sized to what you actually need</span></div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="hstat"><b>5</b><span>small business sites shipped recently</span></div>
-      <div class="hstat"><b>&lt;2s</b><span>target load time, every build</span></div>
-      <div class="hstat"><b>1&ndash;5</b><span>pages &mdash; sized to what you actually need</span></div>
+    <div class="hero-media">
+      <div class="frame">
+        <img src="https://images.pexels.com/photos/10375901/pexels-photo-10375901.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A small business owner smiling while looking at her new website on a laptop">
+      </div>
+      <div class="chip"><span class="dot"></span> Built for business owners like you</div>
     </div>
   </div>
 </header>
