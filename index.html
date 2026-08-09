@@ -172,6 +172,37 @@
   .feature-card h3{font-size:17px;margin-bottom:10px;color:var(--ink);}
   .feature-card p{font-size:14.5px;color:var(--slate);}
 
+  /* PRICING */
+  .pricing{padding:96px 0;}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+  .price-card{
+    border:1px solid var(--line);border-radius:18px;padding:32px 28px;
+    display:flex;flex-direction:column;background:var(--white);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .price-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(14,30,63,0.08);}
+  .price-card.featured{border-color:var(--mint);box-shadow:0 16px 36px rgba(52,211,153,0.18);position:relative;}
+  .price-card.featured::before{
+    content:"Most Popular";position:absolute;top:-13px;left:28px;
+    background:var(--mint);color:var(--navy-deep);font-size:11px;font-weight:800;
+    padding:5px 12px;border-radius:100px;letter-spacing:0.04em;text-transform:uppercase;
+  }
+  .price-tier{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+  .price-amount{font-size:32px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.15;}
+  .price-desc{font-size:14.5px;color:var(--slate);margin-bottom:20px;}
+  .price-list{list-style:none;margin-bottom:26px;flex-grow:1;}
+  .price-list li{
+    font-size:14px;color:var(--ink);padding:10px 0 10px 24px;position:relative;
+    border-top:1px solid var(--line);
+  }
+  .price-list li:first-child{border-top:none;}
+  .price-list li::before{content:"✓";position:absolute;left:0;top:10px;color:var(--mint);font-weight:800;}
+  .price-cta{width:100%;}
+  .price-note{
+    margin-top:34px;font-size:13.5px;color:var(--slate-light);text-align:center;
+    max-width:640px;margin-left:auto;margin-right:auto;
+  }
+
   /* PORTFOLIO */
   .portfolio{background:var(--bg);padding:96px 0;}
   .port-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
@@ -275,6 +306,7 @@
     .hstat span{font-size:12px;}
     .stat-grid{grid-template-columns:repeat(2,1fr);}
     .feature-grid{grid-template-columns:1fr;}
+    .pricing-grid{grid-template-columns:1fr;}
     .port-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:1fr;}
     .whyus-grid{grid-template-columns:1fr;}
@@ -301,11 +333,12 @@
     <div class="nav-links nav-mobile-hide">
       <a href="#work">Portfolio</a>
       <a href="#features">What You Get</a>
+      <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="#pricing" class="btn btn-primary">See Pricing</a>
     </div>
   </div>
 </nav>
@@ -317,7 +350,7 @@
       <h1>A website that loads fast, ranks on Google, and turns visitors into <em>customers.</em></h1>
       <p class="lead">We build 1&ndash;5 page websites for small businesses on Next.js &mdash; the same framework big-name companies use for speed &mdash; so your site shows up in local search and doesn't lose customers to a slow load.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get a Free Quote →</a>
+        <a href="#pricing" class="btn btn-primary">See Pricing →</a>
         <a href="#work" class="btn btn-ghost">See Our Work</a>
       </div>
       <div class="hero-stats">
@@ -481,6 +514,52 @@
   </div>
 </section>
 
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Simple pricing, sized to your site</h2>
+      <p>Every price includes a custom Next.js build, mobile-first design, and local SEO setup. Bigger projects get a straight quote before we start.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">1 Page</div>
+        <div class="price-amount">$500</div>
+        <p class="price-desc">A focused one-page site &mdash; ideal for a single-location business that needs to look sharp and load fast.</p>
+        <ul class="price-list">
+          <li>Custom design on Next.js</li>
+          <li>Mobile-first &amp; SEO-ready</li>
+          <li>Contact form &amp; map</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark price-cta">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">2&ndash;5 Pages</div>
+        <div class="price-amount">$1,000&ndash;$1,500</div>
+        <p class="price-desc">Multi-page sites for businesses with more to show &mdash; services, locations, or a menu. Final price depends on features and content.</p>
+        <ul class="price-list">
+          <li>Everything in 1-page, plus</li>
+          <li>Multiple pages &amp; navigation</li>
+          <li>Booking, ordering, or gallery features</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary price-cta">Get Started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">5+ Pages</div>
+        <div class="price-amount">Get a Quote</div>
+        <p class="price-desc">Larger sites, custom integrations, or ongoing content needs &mdash; we'll scope it with you and give you a straight number.</p>
+        <ul class="price-list">
+          <li>Everything in 2&ndash;5 pages, plus</li>
+          <li>Custom integrations</li>
+          <li>Scoped to your business</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark price-cta">Request a Quote</a>
+      </div>
+    </div>
+    <p class="price-note">Additional features &mdash; like online ordering, booking systems, custom integrations, or extra content &mdash; cost extra and are always scoped and quoted upfront before any work begins.</p>
+  </div>
+</section>
+
 <section class="portfolio" id="work">
   <div class="wrap">
     <div class="section-head">
@@ -626,9 +705,9 @@
 <section class="cta" id="contact">
   <div class="wrap">
     <h2>Ready for a website that works as hard as you do?</h2>
-    <p>Tell us about your business and we'll put together a free quote &mdash; no obligation, no pressure.</p>
+    <p>Pick your package above, or reach out and tell us about your business &mdash; no obligation, no pressure.</p>
     <div class="cta-actions">
-      <a href="mailto:michael@smallbusiness.capital?subject=Website%20Quote%20Request&body=Business%20name%3A%0APages%20needed%20(1-5)%3A%0ACurrent%20website%20(if%20any)%3A%0AWhat%20you%20need%20the%20site%20to%20do%3A" class="btn btn-dark">Email for a Free Quote</a>
+      <a href="mailto:michael@smallbusiness.capital?subject=Website%20Project%20Inquiry&body=Business%20name%3A%0APages%20needed%20(1-5%2B)%3A%0ACurrent%20website%20(if%20any)%3A%0AWhat%20you%20need%20the%20site%20to%20do%3A" class="btn btn-dark">Get Started by Email</a>
       <a href="tel:+18889008979" class="btn btn-ghost" style="color:var(--navy);border-color:var(--navy);">Call (888) 900-8979</a>
     </div>
     <p class="cta-contact">Or reach out directly &mdash; <a href="mailto:michael@smallbusiness.capital">michael@smallbusiness.capital</a></p>
@@ -645,6 +724,7 @@
       <div class="footer-links">
         <a href="#work">Portfolio</a>
         <a href="#features">What You Get</a>
+        <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
         <a href="https://smallbusiness.capital" target="_blank">smallbusiness.capital →</a>
