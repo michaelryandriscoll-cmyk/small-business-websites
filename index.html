@@ -5,21 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Design for Small Businesses | Small Business Capital</title>
 <meta name="description" content="Fast, SEO-optimized 1-5 page websites for small businesses, built on Next.js by Small Business Capital.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23114b5f'/%3E%3Cpath d='M14 42L26 28L34 36L50 16' stroke='%2352c27e' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M40 16H50V26' stroke='%2352c27e' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#2f4858;
-    --navy-deep:#1f313d;
-    --mint:#7c9b74;
-    --mint-bright:#9cb890;
-    --coral:#c17b56;
-    --coral-deep:#a8603d;
-    --sunshine:#d9a441;
-    --pink:#c98a95;
-    --ink:#3b332b;
-    --slate:#7d7264;
+    --navy:#114b5f;
+    --navy-deep:#0b3644;
+    --mint:#2f9e5c;
+    --mint-bright:#52c27e;
+    --coral:#e0703c;
+    --coral-deep:#c1571f;
+    --sunshine:#f2b134;
+    --pink:#e2748a;
+    --ink:#2b2019;
+    --slate:#6b5d4d;
     --slate-light:#a89c8a;
     --bg:#faf3e8;
     --line:#e6dcc8;
@@ -42,8 +43,8 @@
     display:inline-flex;align-items:center;gap:8px;
     font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
     color:var(--mint);
-    background:rgba(124,155,116,0.1);
-    border:1px solid rgba(124,155,116,0.35);
+    background:rgba(47,158,92,0.1);
+    border:1px solid rgba(47,158,92,0.35);
     padding:6px 14px;border-radius:100px;
     margin-bottom:20px;
   }
@@ -56,9 +57,9 @@
   .btn-primary{
     background:linear-gradient(135deg,var(--mint-bright),var(--mint));
     color:var(--navy-deep);
-    box-shadow:0 8px 24px rgba(124,155,116,0.35);
+    box-shadow:0 8px 24px rgba(47,158,92,0.35);
   }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(124,155,116,0.45);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(47,158,92,0.45);}
   .btn-ghost{
     background:transparent;
     color:var(--white);
@@ -74,7 +75,7 @@
   /* NAV */
   nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(47,72,88,0.92);
+    background:rgba(17,75,95,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.08);
   }
@@ -98,18 +99,17 @@
 
   /* HERO */
   .hero{
-    background:radial-gradient(900px 460px at 12% -8%, rgba(124,155,116,0.20), transparent),
-               radial-gradient(700px 420px at 88% 8%, rgba(193,123,86,0.16), transparent),
-               radial-gradient(650px 500px at 70% 105%, rgba(201,138,149,0.14), transparent),
-               linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy) 42%, #0f5c3a 100%);
     color:var(--white);
     padding:96px 0 90px;
     position:relative;
     overflow:hidden;
   }
   .hero::after{
-    content:"";position:absolute;right:-120px;top:-80px;width:480px;height:480px;
-    background:radial-gradient(circle, rgba(217,164,65,0.16), transparent 70%);
+    content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;
+    background:var(--coral);
+    border-radius:50%;
+    opacity:0.16;
     pointer-events:none;
   }
   .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
@@ -129,19 +129,19 @@
   }
   .hero-media img{width:100%;height:440px;object-fit:cover;display:block;}
   .hero-media .frame.illustration{
-    background:linear-gradient(160deg, #fdf8ef 0%, #f7efe0 60%, #f2e8d5 100%);
+    background:linear-gradient(160deg, #fdf3e5 0%, #fbe8d0 60%, #f7dfc0 100%);
     height:440px;display:flex;align-items:center;justify-content:center;padding:18px;
   }
   .hero-media .frame.illustration svg{width:100%;height:100%;}
   .hero-media .frame::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(31,49,61,0) 55%, rgba(31,49,61,0.55) 100%);
+    background:linear-gradient(180deg, rgba(11,54,68,0) 55%, rgba(11,54,68,0.55) 100%);
   }
   .hero-media .frame.illustration::after{content:none;}
   .hero-media .chip{
     position:absolute;left:20px;bottom:20px;z-index:2;
     display:flex;align-items:center;gap:8px;
-    background:rgba(31,49,61,0.85);backdrop-filter:blur(6px);
+    background:rgba(11,54,68,0.85);backdrop-filter:blur(6px);
     border:1px solid rgba(255,255,255,0.14);
     padding:10px 16px;border-radius:100px;
     font-size:13px;font-weight:700;color:var(--white);
@@ -151,7 +151,7 @@
   /* STAT STRIP */
   .stat-strip{background:var(--bg);padding:80px 0;}
   .section-head{max-width:640px;margin-bottom:48px;}
-  .section-head .eyebrow{color:var(--navy);background:rgba(47,72,88,0.06);border-color:rgba(47,72,88,0.15);}
+  .section-head .eyebrow{color:var(--navy);background:rgba(17,75,95,0.06);border-color:rgba(17,75,95,0.15);}
   .section-head h2{font-size:34px;color:var(--ink);margin-bottom:14px;}
   .section-head p{font-size:16.5px;color:var(--slate);}
   .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -186,8 +186,8 @@
     display:flex;flex-direction:column;background:var(--white);
     transition:transform .15s ease, box-shadow .15s ease;
   }
-  .price-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(47,72,88,0.08);}
-  .price-card.featured{border-color:var(--mint);box-shadow:0 16px 36px rgba(124,155,116,0.18);position:relative;}
+  .price-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(17,75,95,0.08);}
+  .price-card.featured{border-color:var(--mint);box-shadow:0 16px 36px rgba(47,158,92,0.18);position:relative;}
   .price-card.featured::before{
     content:"Most Popular";position:absolute;top:-13px;left:28px;
     background:var(--mint);color:var(--navy-deep);font-size:11px;font-weight:800;
@@ -217,10 +217,10 @@
     border:1px solid var(--line);
     transition:transform .18s ease, box-shadow .18s ease;
   }
-  .port-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(47,72,88,0.12);}
+  .port-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(17,75,95,0.12);}
   .port-browser{
     display:flex;align-items:center;gap:6px;
-    padding:12px 16px;background:#3b332b;
+    padding:12px 16px;background:#2b2019;
   }
   .port-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.25);}
   .port-url{
@@ -239,7 +239,7 @@
   .port-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
   .port-tag{
     font-size:11.5px;font-weight:700;color:var(--navy);
-    background:rgba(47,72,88,0.06);padding:5px 10px;border-radius:100px;
+    background:rgba(17,75,95,0.06);padding:5px 10px;border-radius:100px;
   }
   .port-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -248,7 +248,7 @@
   .port-link.disabled{color:var(--slate-light);}
   .badge-live{
     font-size:11px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;
-    padding:4px 10px;border-radius:100px;background:rgba(124,155,116,0.15);color:#0a8a5a;
+    padding:4px 10px;border-radius:100px;background:rgba(47,158,92,0.15);color:#0a8a5a;
   }
   .badge-preview{
     font-size:11px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;
@@ -289,8 +289,8 @@
   /* CTA */
   .cta{
     padding:100px 0;text-align:center;
-    background:radial-gradient(700px 340px at 20% 0%, rgba(124,155,116,0.10), transparent),
-               radial-gradient(600px 320px at 85% 100%, rgba(201,138,149,0.08), transparent);
+    background:radial-gradient(700px 340px at 20% 0%, rgba(47,158,92,0.10), transparent),
+               radial-gradient(600px 320px at 85% 100%, rgba(226,116,138,0.08), transparent);
   }
   .cta h2{font-size:36px;margin-bottom:16px;color:var(--ink);}
   .cta p{font-size:17px;color:var(--slate);max-width:520px;margin:0 auto 34px;}
@@ -330,8 +330,8 @@
   <div class="wrap">
     <a href="#top" class="logo">
       <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 30L14 19L21 25L36 8" stroke="#7c9b74" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M27 8H36V17" stroke="#7c9b74" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 30L14 19L21 25L36 8" stroke="#2f9e5c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M27 8H36V17" stroke="#2f9e5c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
         <rect x="4" y="30" width="5" height="6" rx="1" fill="#ffffff"/>
         <rect x="12" y="24" width="5" height="12" rx="1" fill="#ffffff"/>
         <rect x="20" y="27" width="5" height="9" rx="1" fill="#ffffff"/>
@@ -356,7 +356,7 @@
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-inner">
-      <div class="eyebrow" style="color:#9cb890;background:rgba(124,155,116,0.12);border-color:rgba(124,155,116,0.35);">Web Design · by Small Business Capital</div>
+      <div class="eyebrow" style="color:#52c27e;background:rgba(47,158,92,0.12);border-color:rgba(47,158,92,0.35);">Web Design · by Small Business Capital</div>
       <h1>A website that loads fast, ranks on Google, and turns visitors into <em>customers.</em></h1>
       <p class="lead">We build 1&ndash;5 page websites for small businesses on Next.js &mdash; the same framework big-name companies use for speed &mdash; so your site shows up in local search and doesn't lose customers to a slow load.</p>
       <div class="hero-actions">
@@ -373,29 +373,29 @@
       <div class="frame illustration">
         <svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a small business owner celebrating in front of her new website">
           <!-- decorative sparkles -->
-          <circle cx="110" cy="95" r="6" fill="#7c9b74"/>
+          <circle cx="110" cy="95" r="6" fill="#2f9e5c"/>
           <circle cx="512" cy="120" r="5" fill="#f5c400"/>
           <circle cx="150" cy="330" r="4" fill="#e8608f"/>
           <path d="M492 70 l5 12 12 5 -12 5 -5 12 -5-12 -12-5 12-5 z" fill="#f5c400"/>
-          <path d="M96 250 l4 9 9 4 -9 4 -4 9 -4-9 -9-4 9-4 z" fill="#7c9b74"/>
+          <path d="M96 250 l4 9 9 4 -9 4 -4 9 -4-9 -9-4 9-4 z" fill="#2f9e5c"/>
 
           <!-- plant -->
           <rect x="66" y="392" width="46" height="34" rx="7" fill="#dbe6e0"/>
-          <ellipse cx="80" cy="384" rx="16" ry="22" fill="#7c9b74"/>
-          <ellipse cx="102" cy="378" rx="14" ry="20" fill="#9cb890"/>
+          <ellipse cx="80" cy="384" rx="16" ry="22" fill="#2f9e5c"/>
+          <ellipse cx="102" cy="378" rx="14" ry="20" fill="#52c27e"/>
 
           <!-- desk -->
           <rect x="40" y="428" width="560" height="12" rx="6" fill="#f0e6d2"/>
 
           <!-- torso (drawn behind laptop) -->
-          <path d="M262 260 q58 -26 116 0 l0 60 q-58 20 -116 0 z" fill="#2f4858"/>
+          <path d="M262 260 q58 -26 116 0 l0 60 q-58 20 -116 0 z" fill="#114b5f"/>
 
           <!-- raised celebrating arm -->
-          <path d="M352 268 Q392 244 386 196" stroke="#2f4858" stroke-width="20" fill="none" stroke-linecap="round"/>
+          <path d="M352 268 Q392 244 386 196" stroke="#114b5f" stroke-width="20" fill="none" stroke-linecap="round"/>
           <circle cx="387" cy="190" r="13" fill="#f0b98a"/>
 
           <!-- other arm resting on laptop -->
-          <path d="M270 272 Q250 300 262 322" stroke="#2f4858" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <path d="M270 272 Q250 300 262 322" stroke="#114b5f" stroke-width="18" fill="none" stroke-linecap="round"/>
           <circle cx="264" cy="326" r="12" fill="#f0b98a"/>
 
           <!-- laptop base -->
@@ -403,16 +403,16 @@
           <path d="M205 438 h230 l-10 14 h-210 z" fill="#cdbfa8"/>
 
           <!-- laptop screen -->
-          <rect x="233" y="266" width="174" height="164" rx="12" fill="#2f4858"/>
+          <rect x="233" y="266" width="174" height="164" rx="12" fill="#114b5f"/>
           <rect x="245" y="278" width="150" height="140" rx="5" fill="#ffffff"/>
           <circle cx="255" cy="289" r="2.6" fill="#cbd5e1"/>
           <circle cx="264" cy="289" r="2.6" fill="#cbd5e1"/>
           <circle cx="273" cy="289" r="2.6" fill="#cbd5e1"/>
-          <rect x="253" y="306" width="112" height="10" rx="3" fill="#2f4858"/>
+          <rect x="253" y="306" width="112" height="10" rx="3" fill="#114b5f"/>
           <rect x="253" y="324" width="130" height="6" rx="3" fill="#f0e6d2"/>
           <rect x="253" y="334" width="100" height="6" rx="3" fill="#f0e6d2"/>
-          <rect x="253" y="352" width="56" height="17" rx="8.5" fill="#7c9b74"/>
-          <rect x="322" y="306" width="60" height="64" rx="8" fill="#eafaf3" stroke="#7c9b74" stroke-width="1.5"/>
+          <rect x="253" y="352" width="56" height="17" rx="8.5" fill="#2f9e5c"/>
+          <rect x="322" y="306" width="60" height="64" rx="8" fill="#eafaf3" stroke="#2f9e5c" stroke-width="1.5"/>
 
           <!-- curly hair (behind head) -->
           <g fill="#6f4428">
@@ -446,7 +446,7 @@
           <circle cx="365" cy="240" r="2.5" fill="none" stroke="#f5c400" stroke-width="1.5"/>
 
           <!-- shirt collar peeking above laptop -->
-          <path d="M292 266 Q320 280 348 266 L348 276 Q320 292 292 276 Z" fill="#7c9b74"/>
+          <path d="M292 266 Q320 280 348 266 L348 276 Q320 292 292 276 Z" fill="#2f9e5c"/>
         </svg>
       </div>
       <div class="chip"><span class="dot"></span> This could be you on launch day</div>
@@ -457,7 +457,7 @@
 <section class="stat-strip">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow" style="color:#a8603d;background:rgba(193,123,86,0.12);border-color:rgba(193,123,86,0.35);">Why This Matters</div>
+      <div class="eyebrow" style="color:#c1571f;background:rgba(224,112,60,0.12);border-color:rgba(224,112,60,0.35);">Why This Matters</div>
       <h2>Most small business websites are quietly losing customers</h2>
       <p>Slow, poorly-optimized sites don't just look dated &mdash; they get skipped by Google and abandoned by the exact customers searching for you right now.</p>
     </div>
@@ -475,7 +475,7 @@
         <p>of websites fail Google's Core Web Vitals speed benchmark on mobile &mdash; a direct ranking factor.</p>
       </div>
       <div class="stat-card" style="border-top:4px solid var(--sunshine);">
-        <b style="color:#96701f;">76%</b>
+        <b style="color:#a8760f;">76%</b>
         <p>of people who search "near me" on their phone visit that business within 24 hours.</p>
       </div>
     </div>
@@ -485,7 +485,7 @@
 <section class="features" id="features">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow" style="color:#8a4a54;background:rgba(201,138,149,0.12);border-color:rgba(201,138,149,0.35);">What You Get</div>
+      <div class="eyebrow" style="color:#a8395a;background:rgba(226,116,138,0.12);border-color:rgba(226,116,138,0.35);">What You Get</div>
       <h2>Built to be fast, found, and worth showing off</h2>
       <p>No bloated CMS, no page-builder plugins slowing things down. Just a clean, fast site built around what your business actually needs.</p>
     </div>
@@ -527,7 +527,7 @@
 <section class="pricing" id="pricing">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow" style="color:#96701f;background:rgba(217,164,65,0.16);border-color:rgba(217,164,65,0.4);">Pricing</div>
+      <div class="eyebrow" style="color:#a8760f;background:rgba(242,177,52,0.18);border-color:rgba(242,177,52,0.42);">Pricing</div>
       <h2>Simple pricing, sized to your site</h2>
       <p>Every price includes a custom Next.js build, mobile-first design, and local SEO setup. Bigger projects get a straight quote before we start.</p>
     </div>
@@ -671,7 +671,7 @@
 <section class="process" id="process">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow" style="color:#a8603d;background:rgba(193,123,86,0.12);border-color:rgba(193,123,86,0.35);">How It Works</div>
+      <div class="eyebrow" style="color:#c1571f;background:rgba(224,112,60,0.12);border-color:rgba(224,112,60,0.35);">How It Works</div>
       <h2>From first call to live site &mdash; usually inside two weeks</h2>
       <p>No lengthy discovery phase, no 6-month agency timeline. Small businesses need to be found now.</p>
     </div>
@@ -698,7 +698,7 @@
 <section class="whyus">
   <div class="wrap whyus-grid">
     <div>
-      <div class="eyebrow" style="color:#9cb890;background:rgba(124,155,116,0.12);border-color:rgba(124,155,116,0.35);">Why Small Business Capital</div>
+      <div class="eyebrow" style="color:#52c27e;background:rgba(47,158,92,0.12);border-color:rgba(47,158,92,0.35);">Why Small Business Capital</div>
       <h2>We already work with small businesses like yours &mdash; now we build the other half of the growth equation</h2>
       <p>Small Business Capital helps small businesses across Western New York get funded to grow. A website is the other piece: it's what turns the customers searching for you into customers who actually call, book, or walk in.</p>
       <p>No agency markup. No call center. You're working directly with the person building your site.</p>
@@ -728,7 +728,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <div class="logo-text" style="color:#fff;">Small Business <span style="color:#7c9b74;">Web Design</span></div>
+        <div class="logo-text" style="color:#fff;">Small Business <span style="color:#2f9e5c;">Web Design</span></div>
         <div class="logo-tag" style="margin-top:6px;">By Small Business Capital &middot; Western New York</div>
       </div>
       <div class="footer-links">
